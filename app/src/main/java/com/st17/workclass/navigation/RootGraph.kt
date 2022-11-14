@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.st17.workclass.ui.background.regBackground
+import com.st17.workclass.ui.screens.auth.authScreen
 
 @Composable
 fun rootGraph(navController: NavHostController) {
@@ -12,7 +14,9 @@ fun rootGraph(navController: NavHostController) {
         route = Graph.ROOT,
         startDestination = Graph.AUTHENTICATION
     ) {
-        authGraph(navController = navController)
+        composable(route = Graph.AUTHENTICATION) {
+            regBackground()
+        }
 
         composable(route = Graph.HOME) {
 
