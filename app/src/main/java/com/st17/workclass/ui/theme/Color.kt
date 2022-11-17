@@ -26,4 +26,6 @@ val GreyL = Color(red = 163, green =  54, blue =  23)
 
 val White = Color(red = 219, green = 219, blue =  219)
 
+val Transparent = Color(red = 0, green = 0, blue = 0, alpha = 0)
+
 val ErrorRed = Color(red = 207, green = 0, blue = 0)

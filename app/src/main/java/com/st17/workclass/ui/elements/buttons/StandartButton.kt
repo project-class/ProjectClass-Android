@@ -15,20 +15,9 @@ import androidx.compose.ui.unit.dp
 import com.st17.workclass.ui.elements.texts.text
 import com.st17.workclass.ui.theme.*
 
-@Preview
+@Preview(showBackground = true)
 @Composable
-fun see(){
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.White),
-        contentAlignment = Alignment.Center
-        ){
-        standartButton(text = "Вход", color = GreenD)
-    }
-}
-
-@Composable
-fun standartButton(text: String = "text", color: Color = Black, width: Int = 120, height: Int = 36){
+fun standartButton(text: String = "text", color: Color = Black, width: Int = 146, height: Int = 36){
     Box(
         modifier = Modifier
             .width(width.dp)
