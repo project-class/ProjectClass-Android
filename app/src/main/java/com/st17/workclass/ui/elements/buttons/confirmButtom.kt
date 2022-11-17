@@ -8,33 +8,28 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.st17.workclass.ui.elements.texts.standartButtonText
+import com.st17.workclass.ui.elements.texts.confirmButtonText
 import com.st17.workclass.ui.theme.*
 
 @Composable
-fun standartButton(text: String = "text", color: Color = Black,
-                   width: Int = 146, height: Int = 36,
+fun confirmButton(text: String = "text", textColor: Color = Black,
+                   width: Int = 264, height: Int = 56, buttonColor: Color = White,
                    navHostController: NavHostController, graph : String){
     Box(
         modifier = Modifier
             .width(width.dp)
             .height(height.dp)
-            .shadow(
-                elevation = 5.dp,
-                shape = RoundedCornerShape(8.dp),
-                clip = true)
-            .clip(RoundedCornerShape(8.dp))
-            .background(Color.White)
+            .clip(RoundedCornerShape(12.dp))
+            .background(buttonColor)
             .clickable {
                 navHostController.popBackStack()
                 navHostController.navigate(graph)
             },
         contentAlignment = Alignment.Center
     ) {
-        standartButtonText(text, color)
+        confirmButtonText(text, textColor)
     }
 }

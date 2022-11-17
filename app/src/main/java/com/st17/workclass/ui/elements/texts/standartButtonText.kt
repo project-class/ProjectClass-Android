@@ -9,6 +9,6 @@ import androidx.compose.ui.unit.sp
 import com.st17.workclass.ui.theme.Black
 
 @Composable
-fun text(string: String = "text", color: Color = Black){
+fun standartButtonText(string: String = "text", color: Color = Black){
     Text(string, fontSize = 14.sp, color = color, modifier = Modifier.wrapContentSize())
 }

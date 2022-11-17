@@ -6,6 +6,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.st17.workclass.navigation.AuthGraph
 import com.st17.workclass.ui.background.authBackground
 import com.st17.workclass.ui.elements.InputField.loginField
 import com.st17.workclass.ui.elements.InputField.passField
@@ -13,17 +16,16 @@ import com.st17.workclass.ui.elements.buttons.standartButton
 import com.st17.workclass.ui.elements.texts.titleText
 import com.st17.workclass.ui.theme.BrownN
 import com.st17.workclass.ui.theme.GreenD
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @Preview
 @Composable
-fun authScreen(){
+fun authScreen(navController: NavHostController = rememberNavController()){
+    authBackground()
+
     Box(modifier = Modifier
         .fillMaxSize(),
     contentAlignment = Alignment.Center
     ){
-        authBackground()
-
         Column(
             modifier = Modifier
                 .padding(bottom = 120.dp),
@@ -40,8 +42,8 @@ fun authScreen(){
                     .padding(top = 6.dp, start = 6.dp, end = 6.dp),
                     horizontalArrangement = Arrangement.spacedBy(22.dp),
                 ) {
-                    standartButton(text = "Регистрация", color = BrownN)
-                    standartButton(text = "Вход", color = GreenD)
+                    standartButton(text = "Регистрация", color = BrownN, navHostController = navController, graph = AuthGraph.CHOOSE_REG_TYPE)
+                    standartButton(text = "Вход", color = GreenD, navHostController = navController, graph = AuthGraph.AUTH_STUDENT)
                 }
             }
         }

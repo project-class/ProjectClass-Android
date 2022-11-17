@@ -97,3 +97,33 @@ fun passField(text: String = "text"){
         )
     }
 }
+
+@Composable
+fun classField(text: String = "text"){
+    var textMail by remember { mutableStateOf("") }
+
+    val mainColor = BrownM
+    val backgroundColor = BrownL.copy(0.35f)
+
+
+    Box(modifier = Modifier
+        .clip(RoundedCornerShape(4.dp))) {
+        TextField(
+            value = textMail,
+            onValueChange = { textMail = it },
+            modifier = Modifier
+                .defaultMinSize(minWidth = 328.dp,minHeight = 56.dp),
+            label = { Text(text = "Класс") },
+            singleLine = true,
+            colors = TextFieldDefaults.textFieldColors(
+                cursorColor = mainColor,
+                focusedLabelColor = mainColor.copy(alpha = 0.54f),
+                unfocusedLabelColor = Black.copy(alpha = 0.54f),
+                textColor = Black,
+                backgroundColor = backgroundColor,
+                focusedIndicatorColor = mainColor,
+                unfocusedIndicatorColor = Transparent
+            )
+        )
+    }
+}
