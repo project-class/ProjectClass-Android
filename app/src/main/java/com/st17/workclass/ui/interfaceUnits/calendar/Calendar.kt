@@ -16,16 +16,20 @@ import com.st17.workclass.ui.background.mainBackground
 import com.st17.workclass.ui.elements.buttons.circleButton
 import com.st17.workclass.ui.elements.texts.addictionalText
 import com.st17.workclass.ui.elements.texts.titleText
+import com.st17.workclass.ui.theme.BrownN
+import com.st17.workclass.ui.theme.GreenD
 import com.st17.workclass.ui.theme.White
 
 @Composable
 fun calendar(){
     Column(modifier = Modifier
-            .fillMaxSize()
-            .padding(start = 16.dp, end = 16.dp, top = 36.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)) {
-        Row(modifier = Modifier
+            .padding(start = 16.dp, end = 16.dp, top = 36.dp, bottom = 16.dp)
             .fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(0.dp)) {
+
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .wrapContentHeight(),
             horizontalArrangement = Arrangement.SpaceBetween) {
             Column {
                 titleText(text = "Current date", color = White, textSize = 29.sp)
@@ -39,9 +43,11 @@ fun calendar(){
         }
 
         Row(modifier = Modifier
-            .fillMaxSize(),
+            .wrapContentHeight()
+            .fillMaxWidth()
+            .padding(top = 20.dp),
             horizontalArrangement = Arrangement.SpaceBetween) {
-            dateUnit()
+            dateUnit(circleColor = White, textColor = GreenD)
             dateUnit()
             dateUnit()
             dateUnit()
@@ -63,7 +69,7 @@ fun calendarPreview(navController: NavHostController = rememberNavController()){
         horizontalAlignment = Alignment.CenterHorizontally) {
 
         Box(modifier = Modifier
-            .fillMaxHeight(160/800f)
+            .fillMaxHeight(190/800f)
             .fillMaxWidth()){
             calendar()
         }
