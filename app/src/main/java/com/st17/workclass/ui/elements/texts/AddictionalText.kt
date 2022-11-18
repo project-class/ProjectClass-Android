@@ -15,20 +15,12 @@ import com.st17.workclass.ui.theme.Black
 import com.st17.workclass.ui.theme.WorkClassTheme
 
 @Composable
-fun titleText(text: String = "text", color: Color = Black, textSize : TextUnit = 40.sp){
+fun addictionalText(text: String = "text", color: Color = Black,
+                    textSize : TextUnit = 12.sp, fontWeight: Int = 400){
     Text(text,
         fontSize = textSize,
         color = color,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight(fontWeight),
         modifier = Modifier.wrapContentSize())
 }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    WorkClassTheme {
-        Surface(modifier = Modifier.fillMaxSize()) {
-            titleText(text = "Вход")
-        }
-    }
-}

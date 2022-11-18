@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.st17.workclass.ui.screens.auth.studentRegScreen
+import com.st17.workclass.ui.screens.student.mainStudentScreen
 
 @Composable
 fun studentGraph(navController: NavHostController = rememberNavController()) {
@@ -15,7 +16,7 @@ fun studentGraph(navController: NavHostController = rememberNavController()) {
         startDestination = StudentGraph.STUDENT_MAIN
     ) {
         composable(route = StudentGraph.STUDENT_MAIN) {
-            studentRegScreen()
+           mainStudentScreen(navController)
         }
 
     }
