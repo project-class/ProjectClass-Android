@@ -1,12 +1,12 @@
-package com.st17.workclass.navigation
+package com.st17.workclass.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.st17.workclass.ui.screens.auth.studentRegScreen
 import com.st17.workclass.ui.screens.student.mainStudentScreen
+import com.st17.workclass.ui.screens.student.settingStudentScreen
 
 @Composable
 fun studentGraph(navController: NavHostController = rememberNavController()) {
@@ -19,9 +19,13 @@ fun studentGraph(navController: NavHostController = rememberNavController()) {
            mainStudentScreen(navController)
         }
 
+        composable(route = StudentGraph.STUDENT_SETTING) {
+            settingStudentScreen(navController)
+        }
     }
 }
 
 object StudentGraph {
     const val STUDENT_MAIN = "STUDENT_MAIN"
+    const val STUDENT_SETTING = "STUDENT_SETTING"
 }

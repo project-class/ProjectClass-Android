@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.st17.workclass.navigation.rootGraph
+import com.st17.workclass.ui.navigation.rootGraph
 import com.st17.workclass.ui.theme.WorkClassTheme
 
 

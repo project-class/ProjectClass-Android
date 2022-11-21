@@ -23,7 +23,7 @@ fun returnBackButton(navHostController: NavHostController, graph : String){
             },
         contentAlignment = Alignment.Center
     ) {
-        val vector = ImageVector.vectorResource(id = R.drawable.ic_arrow_back)
+        val vector = ImageVector.vectorResource(id = R.drawable.button_arrow)
 
         Image(
             vector,

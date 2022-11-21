@@ -1,4 +1,4 @@
-package com.st17.workclass.navigation
+package com.st17.workclass.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController

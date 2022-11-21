@@ -8,7 +8,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.st17.workclass.navigation.AuthGraph
+import com.st17.workclass.ui.navigation.AuthGraph
 import com.st17.workclass.ui.background.authBackground
 import com.st17.workclass.ui.elements.InputField.loginField
 import com.st17.workclass.ui.elements.InputField.passField

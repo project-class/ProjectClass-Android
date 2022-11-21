@@ -23,7 +23,7 @@ import com.st17.workclass.ui.theme.White
 @Composable
 fun calendar(){
     Column(modifier = Modifier
-            .padding(start = 16.dp, end = 16.dp, top = 36.dp, bottom = 16.dp)
+            .padding(start = 16.dp, end = 16.dp, top = 35.dp, bottom = 16.dp)
             .fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(0.dp)) {
 

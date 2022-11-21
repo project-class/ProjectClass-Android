@@ -1,4 +1,4 @@
-package com.st17.workclass.navigation
+package com.st17.workclass.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
@@ -10,6 +10,7 @@ import com.st17.workclass.ui.screens.auth.chooseRegTypeScreen
 import com.st17.workclass.ui.screens.auth.studentRegScreen
 import com.st17.workclass.ui.screens.auth.teacherRegScreen
 import com.st17.workclass.ui.screens.home.homeScreen
+import com.st17.workclass.ui.screens.student.scaffoldStudentScreen
 
 @Composable
 fun authGraph(navController: NavHostController = rememberNavController()) {
@@ -23,7 +24,7 @@ fun authGraph(navController: NavHostController = rememberNavController()) {
         }
 
         composable(route = AuthGraph.AUTH_STUDENT) {
-            studentGraph()
+            scaffoldStudentScreen()
         }
 
         composable(route = AuthGraph.AUTH_TEACHER) {

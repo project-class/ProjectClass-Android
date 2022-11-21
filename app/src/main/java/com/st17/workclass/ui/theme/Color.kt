@@ -22,9 +22,10 @@ val Black = Color(red = 48, green =  48, blue =  48)
 
 val GreyD = Color(red = 110, green = 110, blue =  110)
 val GreyN = Color(red = 151, green = 151, blue = 151)
-val GreyL = Color(red = 163, green =  54, blue =  23)
+val GreyL = Color(red = 219, green = 219, blue =  219)
 
-val White = Color(red = 219, green = 219, blue =  219)
+
+val White = Color(red = 255, green = 255, blue =  255)
 
 val Transparent = Color(red = 0, green = 0, blue = 0, alpha = 0)
 

@@ -14,14 +14,13 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import com.st17.workclass.R
-import com.st17.workclass.ui.theme.Black
 import com.st17.workclass.ui.theme.White
 
 @Composable
 fun circleButton(width: Int = 40, height: Int = 40,
                  rotateDegrees : Float = 0f, buttonColor: Color = White){
 
-    val vector = ImageVector.vectorResource(id = R.drawable.ic_trinagle_arrow)
+    val vector = ImageVector.vectorResource(id = R.drawable.button_trinagle_arrow)
 
 
     Box(

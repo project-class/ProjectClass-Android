@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.st17.workclass.ui.theme.Black
 
-fun Modifier.topShadow(
+fun Modifier.extendedShadow(
     color: Color = Black,
     borderRadius: Dp = 0.dp,
     blurRadius: Dp = 0.dp,
