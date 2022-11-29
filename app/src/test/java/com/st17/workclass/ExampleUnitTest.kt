@@ -1,5 +1,6 @@
 package com.st17.workclass
 
+import com.st17.workclass.model.datetime.Time
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -11,7 +12,9 @@ import org.junit.Assert.*
  */
 class ExampleUnitTest {
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun addition_isCorrect1() {
+        val time = Time()
+        assertEquals("Tuesday",  time.getDayOfMonth())
     }
+
 }

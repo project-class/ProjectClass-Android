@@ -1,4 +1,4 @@
-package com.st17.workclass.ui.interfaceUnits.lessonList
+package com.st17.workclass.ui.interfaceComponents.lessonList
 
 import android.graphics.BlurMaskFilter
 import androidx.compose.ui.Modifier

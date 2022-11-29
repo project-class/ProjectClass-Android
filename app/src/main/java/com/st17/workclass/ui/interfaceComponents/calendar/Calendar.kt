@@ -1,5 +1,7 @@
-package com.st17.workclass.ui.interfaceUnits.calendar
+package com.st17.workclass.ui.interfaceComponents.calendar
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -12,16 +14,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.st17.workclass.model.datetime.CurrentTime
+import com.st17.workclass.model.datetime.Date
 import com.st17.workclass.ui.background.mainBackground
 import com.st17.workclass.ui.elements.buttons.circleButton
 import com.st17.workclass.ui.elements.texts.addictionalText
 import com.st17.workclass.ui.elements.texts.titleText
-import com.st17.workclass.ui.theme.BrownN
 import com.st17.workclass.ui.theme.GreenD
 import com.st17.workclass.ui.theme.White
 
 @Composable
-fun calendar(){
+fun calendar(date: Date){
     Column(modifier = Modifier
             .padding(start = 16.dp, end = 16.dp, top = 35.dp, bottom = 16.dp)
             .fillMaxSize(),
@@ -32,8 +35,8 @@ fun calendar(){
             .wrapContentHeight(),
             horizontalArrangement = Arrangement.SpaceBetween) {
             Column {
-                titleText(text = "Current date", color = White, textSize = 29.sp)
-                addictionalText(text = "month", color = White)
+                titleText(text = date.day.toString(), color = White, textSize = 29.sp)
+                addictionalText(text = date.month.toString(), color = White)
             }
 
             Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
@@ -59,9 +62,12 @@ fun calendar(){
 }
 
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Preview
 @Composable
 fun calendarPreview(navController: NavHostController = rememberNavController()){
+    val time = CurrentTime()
+
     mainBackground()
 
     Column(modifier = Modifier
@@ -71,7 +77,7 @@ fun calendarPreview(navController: NavHostController = rememberNavController()){
         Box(modifier = Modifier
             .fillMaxHeight(190/800f)
             .fillMaxWidth()){
-            calendar()
+            calendar(time.getCurrentDate())
         }
 
         Box(modifier = Modifier

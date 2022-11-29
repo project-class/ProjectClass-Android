@@ -1,4 +1,4 @@
-package com.st17.workclass.ui.interfaceUnits.lessonList
+package com.st17.workclass.ui.interfaceComponents.lessonList
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
@@ -15,7 +15,6 @@ import com.st17.workclass.ui.elements.texts.titleText
 import com.st17.workclass.ui.theme.BrownN
 import com.st17.workclass.ui.theme.GreenD
 import com.st17.workclass.ui.theme.GreyD
-import com.st17.workclass.ui.theme.Transparent
 
 @Composable
 fun lessonUnit(lesson: Lesson,

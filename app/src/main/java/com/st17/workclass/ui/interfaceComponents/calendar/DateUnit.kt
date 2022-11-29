@@ -1,4 +1,4 @@
-package com.st17.workclass.ui.interfaceUnits.calendar
+package com.st17.workclass.ui.interfaceComponents.calendar
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
