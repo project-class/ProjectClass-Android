@@ -2,6 +2,7 @@ package com.st17.workclass.model.datetime
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import java.time.LocalDate
 
 class CurrentTime {
     val time = Time();
@@ -15,4 +16,5 @@ class CurrentTime {
     fun getCurrentTime(): Date{
         return Date(time.getYear(), time.getMonth(), time.getDayOfMonth(), time.getDayOfWeek())
     }
+
 }

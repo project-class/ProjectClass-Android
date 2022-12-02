@@ -1,12 +1,17 @@
 package com.st17.workclass.ui.interfaceComponents.calendar
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.TabPosition
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.UiComposable
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -20,11 +25,18 @@ import com.st17.workclass.ui.theme.GreenD
 import com.st17.workclass.ui.theme.White
 
 @Composable
-fun dateUnit(date:String = "date", numDate: Int = 0, textColor: Color = White, circleColor : Color = GreenD){
+fun dateUnit(date:String = "date", numDate: Int = 0, textColor: Color = White, circleColor : Color = GreenD, click: ()-> Unit) {
+
+    val interactionSource = remember { MutableInteractionSource() }
 
     Column(modifier = Modifier
         .width(32.dp)
-        .height(54.dp),
+        .height(54.dp)
+        .clickable(
+            interactionSource = interactionSource,
+            indication = null,
+            onClick = click),
+
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally) {
 
@@ -40,6 +52,8 @@ fun dateUnit(date:String = "date", numDate: Int = 0, textColor: Color = White, c
     }
 }
 
+
+
 @Preview
 @Composable
 fun dateUnitPreview(navController: NavHostController = rememberNavController()){
@@ -52,7 +66,9 @@ fun dateUnitPreview(navController: NavHostController = rememberNavController()){
         Box(modifier = Modifier
             .fillMaxHeight(160/800f)
             .fillMaxWidth()){
-            dateUnit()
+            dateUnit(){
+
+            }
         }
 
         Box(modifier = Modifier

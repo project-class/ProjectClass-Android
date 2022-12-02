@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.st17.workclass.data.ExampleLessonList
 import com.st17.workclass.ui.background.mainBackground
 import com.st17.workclass.ui.interfaceComponents.calendar.calendar
 import com.st17.workclass.ui.interfaceComponents.lessonList.lessonList
@@ -35,7 +36,7 @@ fun mainStudentScreen(
         Box(modifier = Modifier
             .fillMaxHeight(176/800f)
             .fillMaxWidth()){
-            calendar(studentMainViewModel.date)
+            calendar(studentMainViewModel.date, studentMainViewModel)
         }
 
         Box(modifier = Modifier
@@ -51,7 +52,7 @@ fun mainStudentScreen(
                 Box(modifier = Modifier
                     .fillMaxWidth()
                     .fillMaxHeight()){
-                    lessonList(studentMainViewModel.mutableList)
+                    lessonList(ExampleLessonList.lessons2)
                 }
             }
         }

@@ -1,5 +1,6 @@
 package com.st17.workclass
 
+import com.st17.workclass.model.datetime.CurrentTime
 import com.st17.workclass.model.datetime.Time
 import org.junit.Test
 
@@ -45,5 +46,12 @@ class TestTime {
     fun testYear() {
         val time = Time()
         assertEquals(2022,  time.getYear())
+    }
+
+    @Test
+    fun getWeek() {
+        val time = Time()
+        val ctime = CurrentTime()
+        assertEquals(2022,  time.getWeekByDate(ctime.getCurrentDate()))
     }
 }

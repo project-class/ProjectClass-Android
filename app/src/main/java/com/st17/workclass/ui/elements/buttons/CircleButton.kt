@@ -2,6 +2,7 @@ package com.st17.workclass.ui.elements.buttons
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
@@ -28,7 +29,10 @@ fun circleButton(width: Int = 40, height: Int = 40,
             .width(width.dp)
             .height(height.dp)
             .clip(CircleShape)
-            .background(buttonColor),
+            .background(buttonColor)
+            .clickable {
+
+            },
         contentAlignment = Alignment.Center
     ) {
 
