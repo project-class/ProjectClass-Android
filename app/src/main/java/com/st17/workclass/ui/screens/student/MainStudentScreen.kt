@@ -14,6 +14,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.st17.workclass.data.ExampleLessonList
+import com.st17.workclass.di.DaggerStudentComponent
+import com.st17.workclass.di.StudentComponent
 import com.st17.workclass.ui.background.mainBackground
 import com.st17.workclass.ui.interfaceComponents.calendar.calendar
 import com.st17.workclass.ui.interfaceComponents.lessonList.lessonList
@@ -25,9 +27,11 @@ import com.st17.workclass.ui.theme.White
 @Composable
 fun mainStudentScreen(
     navController: NavHostController = rememberNavController(),
-    studentMainViewModel: StudentMainViewModel = StudentMainViewModel()
     ){
     mainBackground()
+
+    val component: StudentComponent = DaggerStudentComponent.create()
+    val studentMainViewModel: StudentMainViewModel = StudentMainViewModel(component)
 
     Column(modifier = Modifier
             .fillMaxSize(),

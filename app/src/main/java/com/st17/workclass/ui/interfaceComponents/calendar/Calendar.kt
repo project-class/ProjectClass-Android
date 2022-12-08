@@ -19,8 +19,8 @@ import androidx.navigation.compose.rememberNavController
 import com.st17.workclass.data.CalendarNames.daysOfWeekName
 import com.st17.workclass.data.CalendarNames.daysOfWeekShortName
 import com.st17.workclass.data.CalendarNames.monthsName
-import com.st17.workclass.model.datetime.CurrentTime
 import com.st17.workclass.model.datetime.Date
+import com.st17.workclass.model.datetime.Time
 import com.st17.workclass.ui.background.mainBackground
 import com.st17.workclass.ui.elements.buttons.circleButton
 import com.st17.workclass.ui.elements.texts.addictionalText
@@ -28,13 +28,17 @@ import com.st17.workclass.ui.elements.texts.titleText
 import com.st17.workclass.ui.screens.student.StudentMainViewModel
 import com.st17.workclass.ui.theme.GreenD
 import com.st17.workclass.ui.theme.White
+import javax.inject.Inject
 
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun calendar(date: Date, viewModel: StudentMainViewModel = StudentMainViewModel()){
+fun calendar(date: Date, viewModel: StudentMainViewModel){
+
     val currentDay = remember { mutableStateOf(viewModel.date) }
     val currentWeek = viewModel.getWeek(date)
+
+
 
     Column(modifier = Modifier
             .padding(start = 16.dp, end = 16.dp, top = 35.dp, bottom = 16.dp)
@@ -75,35 +79,6 @@ fun calendar(date: Date, viewModel: StudentMainViewModel = StudentMainViewModel(
                     }
                 }
             }
-        }
-    }
-}
-
-
-@RequiresApi(Build.VERSION_CODES.O)
-@Preview
-@Composable
-fun calendarPreview(navController: NavHostController = rememberNavController()){
-    val time = CurrentTime()
-
-    mainBackground()
-
-    Column(modifier = Modifier
-        .fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally) {
-
-        Box(modifier = Modifier
-            .fillMaxHeight(190/800f)
-            .fillMaxWidth()){
-            calendar(time.getCurrentDate())
-        }
-
-        Box(modifier = Modifier
-            .fillMaxSize()
-            .padding(top = 16.dp)
-            .clip(RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp))
-            .background(White)){
-
         }
     }
 }

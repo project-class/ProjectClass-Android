@@ -1,20 +1,18 @@
 package com.st17.workclass.ui.screens.student
 
-import android.app.Application
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
-import com.st17.workclass.model.datetime.CurrentTime
+import com.st17.workclass.di.StudentComponent
 import com.st17.workclass.model.datetime.Date
-import com.st17.workclass.model.datetime.Time
+import javax.inject.Inject
 
-class StudentMainViewModel() : ViewModel() {
-    val application: Application = Application()
-    val cTime = CurrentTime()
-    val time = Time()
+
+class StudentMainViewModel @Inject constructor(private val component: StudentComponent) : ViewModel() {
+    val time = component.time
 
     @RequiresApi(Build.VERSION_CODES.O)
-    var date = cTime.getCurrentDate()
+    var date = time.getCurrentDate()
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun getWeek(date : Date): MutableList<Date>{

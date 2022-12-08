@@ -9,7 +9,6 @@ import com.st17.workclass.ui.screens.auth.authScreen
 import com.st17.workclass.ui.screens.auth.chooseRegTypeScreen
 import com.st17.workclass.ui.screens.auth.studentRegScreen
 import com.st17.workclass.ui.screens.auth.teacherRegScreen
-import com.st17.workclass.ui.screens.home.homeScreen
 import com.st17.workclass.ui.screens.student.scaffoldStudentScreen
 
 @Composable
@@ -28,7 +27,7 @@ fun authGraph(navController: NavHostController = rememberNavController()) {
         }
 
         composable(route = AuthGraph.AUTH_TEACHER) {
-            homeScreen()
+
         }
 
         composable(route = AuthGraph.CHOOSE_REG_TYPE) {
