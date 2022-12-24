@@ -1,4 +1,4 @@
-package com.st17.workclass.ui.screens.student
+package com.st17.workclass.ui.screens.student.mainscreen
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -14,8 +14,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.st17.workclass.data.ExampleLessonList
-import com.st17.workclass.di.DaggerStudentComponent
-import com.st17.workclass.di.StudentComponent
 import com.st17.workclass.ui.background.mainBackground
 import com.st17.workclass.ui.interfaceComponents.calendar.calendar
 import com.st17.workclass.ui.interfaceComponents.lessonList.lessonList
@@ -30,8 +28,7 @@ fun mainStudentScreen(
     ){
     mainBackground()
 
-    val component: StudentComponent = DaggerStudentComponent.create()
-    val studentMainViewModel: StudentMainViewModel = StudentMainViewModel(component)
+    val studentMainViewModel: StudentMainViewModel = StudentMainViewModel()
 
     Column(modifier = Modifier
             .fillMaxSize(),

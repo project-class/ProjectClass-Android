@@ -2,33 +2,23 @@ package com.st17.workclass.ui.interfaceComponents.calendar
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.st17.workclass.data.CalendarNames.daysOfWeekName
 import com.st17.workclass.data.CalendarNames.daysOfWeekShortName
 import com.st17.workclass.data.CalendarNames.monthsName
 import com.st17.workclass.model.datetime.Date
-import com.st17.workclass.model.datetime.Time
-import com.st17.workclass.ui.background.mainBackground
 import com.st17.workclass.ui.elements.buttons.circleButton
 import com.st17.workclass.ui.elements.texts.addictionalText
 import com.st17.workclass.ui.elements.texts.titleText
-import com.st17.workclass.ui.screens.student.StudentMainViewModel
+import com.st17.workclass.ui.screens.student.mainscreen.StudentMainViewModel
 import com.st17.workclass.ui.theme.GreenD
 import com.st17.workclass.ui.theme.White
-import javax.inject.Inject
 
 
 @RequiresApi(Build.VERSION_CODES.O)

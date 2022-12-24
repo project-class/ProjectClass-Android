@@ -1,4 +1,4 @@
-package com.st17.workclass.ui.screens.student
+package com.st17.workclass.ui.screens.student.settings
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview

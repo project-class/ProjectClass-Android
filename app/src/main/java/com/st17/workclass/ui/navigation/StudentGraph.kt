@@ -5,8 +5,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.st17.workclass.ui.screens.student.mainStudentScreen
-import com.st17.workclass.ui.screens.student.settingStudentScreen
+import com.st17.workclass.ui.screens.student.mainscreen.mainStudentScreen
+import com.st17.workclass.ui.screens.student.settings.settingStudentScreen
 
 @Composable
 fun studentGraph(navController: NavHostController = rememberNavController()) {
