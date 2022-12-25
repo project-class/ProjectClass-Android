@@ -19,8 +19,8 @@ class Time {
     @RequiresApi(Build.VERSION_CODES.O)
     fun getWeekByDate(cDate : Date): MutableList<Date>{
         val week = mutableListOf<Date>()
-        val date: LocalDate = LocalDate.of(cDate.year, cDate.month, cDate.day)
-        var currentDate : LocalDate;
+        val date: LocalDate = LocalDate.of(cDate.year, cDate.month + 1, cDate.day + 1)
+        var currentDate : LocalDate
 
         for (i in 0..6){
             if (i < cDate.dayOfWeek){
@@ -33,7 +33,7 @@ class Time {
                 currentDate = date
             }
 
-            week.add(Date(year = currentDate.year, month = currentDate.monthValue - 1, day = currentDate.dayOfMonth, dayOfWeek = i))
+            week.add(Date(year = currentDate.year, month = currentDate.monthValue, day = currentDate.dayOfMonth, dayOfWeek = i))
         }
 
         return week;

@@ -13,7 +13,7 @@ import androidx.navigation.NavHostController
 import com.st17.workclass.R
 
 @Composable
-fun returnBackButton(navHostController: NavHostController, graph : String){
+fun returnBackArrowButtonBlack(navHostController: NavHostController, graph : String){
     Box(
         modifier = Modifier
             .wrapContentSize()
@@ -23,7 +23,30 @@ fun returnBackButton(navHostController: NavHostController, graph : String){
             },
         contentAlignment = Alignment.Center
     ) {
-        val vector = ImageVector.vectorResource(id = R.drawable.button_arrow)
+        val vector = ImageVector.vectorResource(id = R.drawable.button_arrow_black)
+
+        Image(
+            vector,
+            "top",
+            modifier = Modifier
+                .width(16.dp)
+                .aspectRatio(vector.viewportWidth/vector.viewportHeight)
+        )
+    }
+}
+
+@Composable
+fun returnBackArrowButtonWhite(navHostController: NavHostController, graph : String){
+    Box(
+        modifier = Modifier
+            .wrapContentSize()
+            .clickable {
+                navHostController.popBackStack()
+                navHostController.navigate(graph)
+            },
+        contentAlignment = Alignment.Center
+    ) {
+        val vector = ImageVector.vectorResource(id = R.drawable.button_arrow_white)
 
         Image(
             vector,

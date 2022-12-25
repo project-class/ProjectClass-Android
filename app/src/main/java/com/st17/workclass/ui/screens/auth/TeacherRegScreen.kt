@@ -10,11 +10,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.st17.workclass.ui.navigation.AuthGraph
 import com.st17.workclass.ui.background.regBackground
-import com.st17.workclass.ui.elements.InputField.classField
-import com.st17.workclass.ui.elements.InputField.loginField
-import com.st17.workclass.ui.elements.InputField.passField
+import com.st17.workclass.ui.elements.inputField.loginField
+import com.st17.workclass.ui.elements.inputField.passField
 import com.st17.workclass.ui.elements.buttons.confirmButton
-import com.st17.workclass.ui.elements.buttons.returnBackButton
+import com.st17.workclass.ui.elements.buttons.returnBackArrowButtonBlack
 import com.st17.workclass.ui.theme.BrownN
 
 @Preview
@@ -25,7 +24,7 @@ fun teacherRegScreen(navController: NavHostController = rememberNavController())
     Column(modifier = Modifier
         .padding(top = 50.dp, start = 16.dp)) {
 
-        returnBackButton(navHostController = navController, graph = AuthGraph.CHOOSE_REG_TYPE)
+        returnBackArrowButtonBlack(navHostController = navController, graph = AuthGraph.CHOOSE_REG_TYPE)
     }
 
     Box(modifier = Modifier

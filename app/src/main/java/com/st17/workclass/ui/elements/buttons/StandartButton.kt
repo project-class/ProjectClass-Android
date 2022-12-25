@@ -33,6 +33,7 @@ fun standartButton(text: String = "text", color: Color = Black,
                 navHostController.popBackStack()
                 navHostController.navigate(graph)
             },
+
         contentAlignment = Alignment.Center
     ) {
         standartButtonText(text, color)

@@ -1,7 +1,10 @@
 package com.st17.workclass.model.datetime
 
-class Date(year: Int, month : Int, day : Int, dayOfWeek : Int) {
+import com.st17.workclass.data.CalendarNames.daysOfWeekName
+import com.st17.workclass.data.CalendarNames.daysOfWeekShortName
+import com.st17.workclass.data.CalendarNames.monthsName
 
+class Date(year: Int, month : Int, day : Int, dayOfWeek : Int) {
     constructor(date: Date) : this(year = date.year, month = date.month, day = date.day, dayOfWeek = date.dayOfWeek){}
 
     var year: Int = year
@@ -9,4 +12,16 @@ class Date(year: Int, month : Int, day : Int, dayOfWeek : Int) {
     var day : Int = day
     var dayOfWeek : Int = dayOfWeek
 
+
+    fun getNameMonth() : String{
+        return monthsName[month]
+    }
+
+    fun getNameDayOfWeek() : String{
+        return daysOfWeekName[dayOfWeek]
+    }
+
+    fun getShirtNameDayOfWeek() : String{
+        return daysOfWeekShortName[dayOfWeek]
+    }
 }

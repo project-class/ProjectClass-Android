@@ -9,26 +9,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.st17.workclass.data.ExampleLessonList
 import com.st17.workclass.ui.background.mainBackground
-import com.st17.workclass.ui.interfaceComponents.calendar.calendar
-import com.st17.workclass.ui.interfaceComponents.lessonList.lessonList
-import com.st17.workclass.ui.interfaceComponents.lessonList.extendedShadow
+import com.st17.workclass.ui.interfaceComponents.mainScreen.calendar.calendar
+import com.st17.workclass.ui.interfaceComponents.mainScreen.lessonList.lessonList
+import com.st17.workclass.ui.elements.shadow.extendedShadow
 import com.st17.workclass.ui.theme.White
 
 @RequiresApi(Build.VERSION_CODES.O)
-@Preview
 @Composable
 fun mainStudentScreen(
     navController: NavHostController = rememberNavController(),
+    studentMainViewModel: StudentMainViewModel
     ){
     mainBackground()
-
-    val studentMainViewModel: StudentMainViewModel = StudentMainViewModel()
 
     Column(modifier = Modifier
             .fillMaxSize(),
@@ -53,7 +49,7 @@ fun mainStudentScreen(
                 Box(modifier = Modifier
                     .fillMaxWidth()
                     .fillMaxHeight()){
-                    lessonList(ExampleLessonList.lessons2)
+                    lessonList(navController, studentMainViewModel)
                 }
             }
         }

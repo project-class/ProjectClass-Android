@@ -1,4 +1,4 @@
-package com.st17.workclass.ui.interfaceComponents.calendar
+package com.st17.workclass.ui.interfaceComponents.mainScreen.calendar
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,7 +25,9 @@ import com.st17.workclass.ui.theme.GreenD
 import com.st17.workclass.ui.theme.White
 
 @Composable
-fun dateUnit(date:String = "date", numDate: Int = 0, textColor: Color = White, circleColor : Color = GreenD, click: ()-> Unit) {
+fun dateUnit(date:String = "date", numDate: Int = 0,
+             textColor: Color = White, circleColor : Color = GreenD,
+             click: ()-> Unit) {
 
     val interactionSource = remember { MutableInteractionSource() }
 
@@ -47,7 +49,7 @@ fun dateUnit(date:String = "date", numDate: Int = 0, textColor: Color = White, c
             .clip(CircleShape)
             .background(circleColor),
             contentAlignment = Alignment.Center){
-            addictionalText(numDate.toString(), color = textColor, textSize = 14.sp, fontWeight = 500)
+            addictionalText((numDate).toString(), color = textColor, textSize = 14.sp, fontWeight = 500)
         }
     }
 }

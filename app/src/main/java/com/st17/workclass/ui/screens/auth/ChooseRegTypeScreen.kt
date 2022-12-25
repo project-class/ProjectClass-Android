@@ -10,7 +10,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.st17.workclass.ui.navigation.AuthGraph
 import com.st17.workclass.ui.background.regBackground
-import com.st17.workclass.ui.elements.buttons.returnBackButton
+import com.st17.workclass.ui.elements.buttons.returnBackArrowButtonBlack
 import com.st17.workclass.ui.elements.buttons.standartButton
 import com.st17.workclass.ui.theme.BrownN
 import com.st17.workclass.ui.theme.GreenD
@@ -23,7 +23,7 @@ fun chooseRegTypeScreen(navController: NavHostController = rememberNavController
     Column(modifier = Modifier
         .padding(top = 50.dp, start = 16.dp)) {
 
-        returnBackButton(navHostController = navController, graph = AuthGraph.LOGIN)
+        returnBackArrowButtonBlack(navHostController = navController, graph = AuthGraph.LOGIN)
     }
 
     Box(modifier = Modifier

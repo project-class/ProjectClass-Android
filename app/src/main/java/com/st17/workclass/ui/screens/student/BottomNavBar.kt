@@ -15,7 +15,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.st17.workclass.R
-import com.st17.workclass.ui.interfaceComponents.lessonList.extendedShadow
+import com.st17.workclass.ui.elements.shadow.extendedShadow
 import com.st17.workclass.ui.navigation.StudentGraph
 import com.st17.workclass.ui.theme.GreyD
 import com.st17.workclass.ui.theme.White

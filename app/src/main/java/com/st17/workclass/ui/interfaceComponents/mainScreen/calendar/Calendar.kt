@@ -1,4 +1,4 @@
-package com.st17.workclass.ui.interfaceComponents.calendar
+package com.st17.workclass.ui.interfaceComponents.mainScreen.calendar
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -27,8 +27,6 @@ fun calendar(date: Date, viewModel: StudentMainViewModel){
 
     val currentDay = remember { mutableStateOf(viewModel.date) }
     val currentWeek = viewModel.getWeek(date)
-
-
 
     Column(modifier = Modifier
             .padding(start = 16.dp, end = 16.dp, top = 35.dp, bottom = 16.dp)

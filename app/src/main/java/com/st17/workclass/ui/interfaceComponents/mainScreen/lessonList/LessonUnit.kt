@@ -1,5 +1,6 @@
-package com.st17.workclass.ui.interfaceComponents.lessonList
+package com.st17.workclass.ui.interfaceComponents.mainScreen.lessonList
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,7 +19,8 @@ import com.st17.workclass.ui.theme.GreyD
 
 @Composable
 fun lessonUnit(lesson: Lesson,
-               startTime: String = "00:00", endTime: String = "00:45"){
+               startTime: String = "00:00", endTime: String = "00:45",
+               onClick: () -> Unit){
 
     var statusColor : Color?
     var statusText : String?
@@ -35,7 +37,10 @@ fun lessonUnit(lesson: Lesson,
 
     Row(modifier = Modifier
         .padding(start = 16.dp, end = 16.dp, top = 23.dp)
-        .fillMaxWidth(),
+        .fillMaxWidth()
+        .clickable {
+                   onClick()
+        },
         horizontalArrangement = Arrangement.spacedBy(17.dp)
     ){
         Column(
@@ -60,9 +65,3 @@ fun lessonUnit(lesson: Lesson,
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun previewLessonUnit(){
-    val lesson = Lesson(place = 1, status = LessonStatus.CURRENT)
-    lessonUnit(lesson)
-}

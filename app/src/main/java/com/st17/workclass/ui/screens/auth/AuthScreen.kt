@@ -10,8 +10,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.st17.workclass.ui.navigation.AuthGraph
 import com.st17.workclass.ui.background.authBackground
-import com.st17.workclass.ui.elements.InputField.loginField
-import com.st17.workclass.ui.elements.InputField.passField
+import com.st17.workclass.ui.elements.inputField.loginField
+import com.st17.workclass.ui.elements.inputField.passField
 import com.st17.workclass.ui.elements.buttons.standartButton
 import com.st17.workclass.ui.elements.texts.titleText
 import com.st17.workclass.ui.theme.BrownN
