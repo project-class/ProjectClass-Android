@@ -35,9 +35,4 @@ fun lessonList(navController : NavHostController, studentMainViewModel: StudentM
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun previewLessonList(){
-    lessonList(rememberNavController(), StudentMainViewModel())
-}
 

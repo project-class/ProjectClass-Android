@@ -15,7 +15,7 @@ import com.st17.workclass.ui.screens.student.settings.settingStudentScreen
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun studentGraph(navController: NavHostController = rememberNavController(),
-                 studentMainViewModel: StudentMainViewModel = StudentMainViewModel()) {
+                 studentMainViewModel: StudentMainViewModel) {
     NavHost(
         navController = navController,
         route = Graph.STUDENT,

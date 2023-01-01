@@ -1,5 +1,6 @@
-package com.st17.workclass.model.datetime
+package com.st17.workclass.di.modules
 
+import com.st17.workclass.model.datetime.Time
 import dagger.Module
 import dagger.Provides
 
@@ -7,7 +8,7 @@ import dagger.Provides
 class TimeModule {
 
     @Provides
-    fun provideTime(): Time{
+    fun provideTime(): Time {
         return Time()
     }
 }

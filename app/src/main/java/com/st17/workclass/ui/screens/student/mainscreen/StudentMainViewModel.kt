@@ -4,22 +4,18 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.st17.workclass.data.ExampleLessonList
 import com.st17.workclass.data.Lesson
 import com.st17.workclass.data.LessonStatus
-import com.st17.workclass.di.DaggerStudentComponent
-import com.st17.workclass.di.StudentComponent
 import com.st17.workclass.model.datetime.Date
 import com.st17.workclass.model.datetime.Time
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
-class StudentMainViewModel() : ViewModel() {
-    private val component: StudentComponent = DaggerStudentComponent.create()
+class StudentMainViewModel @Inject constructor(private val time: Time) : ViewModel() {
 
-    private val time: Time = component.time
     var lesson: Lesson = Lesson(place = 0)
 
 
@@ -32,6 +28,7 @@ class StudentMainViewModel() : ViewModel() {
             _currentName.value = input
         }
     }
+
 
     private val _lessons = MutableStateFlow(mutableListOf<Lesson>(
         Lesson(name = "Math", homework = "p2, ex 1-5", place = 1, status = LessonStatus.PAST, office = "10", theme = "Теория вероятностей и Математическая статистика"),

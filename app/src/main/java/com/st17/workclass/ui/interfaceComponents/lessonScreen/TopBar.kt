@@ -22,7 +22,7 @@ import com.st17.workclass.ui.theme.White
 
 @Composable
 @RequiresApi(Build.VERSION_CODES.O)
-fun topLessonBar(studentMainViewModel: StudentMainViewModel = StudentMainViewModel(),
+fun topLessonBar(studentMainViewModel: StudentMainViewModel,
                  navHostController: NavHostController = rememberNavController()
 ){
     val lesson = studentMainViewModel.lesson

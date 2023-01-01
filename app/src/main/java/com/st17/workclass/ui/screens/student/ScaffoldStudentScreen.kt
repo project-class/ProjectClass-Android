@@ -12,9 +12,8 @@ import com.st17.workclass.ui.screens.student.mainscreen.StudentMainViewModel
 @RequiresApi(Build.VERSION_CODES.O)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun scaffoldStudentScreen(){
+fun scaffoldStudentScreen(studentMainViewModel : StudentMainViewModel){
     val navController = rememberNavController()
-    val studentMainViewModel = StudentMainViewModel()
 
     Scaffold(
         content = { studentGraph(navController, studentMainViewModel) },

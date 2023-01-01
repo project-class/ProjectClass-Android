@@ -1,6 +1,5 @@
-package com.st17.workclass.ui.screens.student
+package com.st17.workclass.ui.screens.teacher
 
-import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,27 +12,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.st17.workclass.MainApp
-import com.st17.workclass.model.datetime.Time
-import com.st17.workclass.ui.navigation.studentGraph
-import com.st17.workclass.ui.screens.student.mainscreen.StudentMainViewModel
+import com.st17.workclass.ui.background.mainBackground
 import com.st17.workclass.ui.theme.WorkClassTheme
-import javax.inject.Inject
 
 
-class StudentActivity : ComponentActivity() {
-
-    @Inject
-    lateinit var time: Time
-
-    @Inject
-    lateinit var studentMainViewModel: StudentMainViewModel
-
+class TeacherActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        (application as MainApp).appComponent.inject(this)
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
@@ -43,10 +29,12 @@ class StudentActivity : ComponentActivity() {
                     Color.Transparent, darkIcons = MaterialTheme.colors.isLight)
 
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    scaffoldStudentScreen(studentMainViewModel = studentMainViewModel)
+                    mainBackground()
                 }
             }
         }
+
+        val settings = getSharedPreferences("PreferencesName", MODE_PRIVATE)
     }
 }
 

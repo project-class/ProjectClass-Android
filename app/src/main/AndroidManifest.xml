@@ -15,6 +15,18 @@
             android:theme="@style/Theme.WorkClass"
             tools:targetApi="31">
         <activity
+                android:name=".ui.screens.teacher.TeacherActivity"
+                android:exported="true"
+                android:label="@string/app_name"
+                android:theme="@style/Theme.WorkClass">
+        </activity>
+        <activity
+                android:name=".ui.screens.auth.AuthActivity"
+                android:exported="true"
+                android:label="@string/app_name"
+                android:theme="@style/Theme.WorkClass">
+        </activity>
+        <activity
             android:name=".ui.screens.student.StudentActivity"
             android:exported="true"
             android:label="@string/app_name"

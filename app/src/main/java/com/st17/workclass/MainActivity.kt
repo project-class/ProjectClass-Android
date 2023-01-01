@@ -10,10 +10,8 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
-import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.st17.workclass.ui.background.mainBackground
-import com.st17.workclass.ui.navigation.rootGraph
 import com.st17.workclass.ui.screens.student.StudentActivity
 import com.st17.workclass.ui.theme.WorkClassTheme
 

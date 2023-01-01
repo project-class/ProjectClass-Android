@@ -23,7 +23,6 @@ fun authGraph(navController: NavHostController = rememberNavController()) {
         }
 
         composable(route = AuthGraph.AUTH_STUDENT) {
-            scaffoldStudentScreen()
         }
 
         composable(route = AuthGraph.AUTH_TEACHER) {
