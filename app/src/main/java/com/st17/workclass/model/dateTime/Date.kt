@@ -1,4 +1,4 @@
-package com.st17.workclass.model.datetime
+package com.st17.workclass.model.dateTime
 
 import com.st17.workclass.data.CalendarNames.daysOfWeekName
 import com.st17.workclass.data.CalendarNames.daysOfWeekShortName

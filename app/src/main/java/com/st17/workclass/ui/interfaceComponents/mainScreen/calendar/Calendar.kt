@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.sp
 import com.st17.workclass.data.CalendarNames.daysOfWeekName
 import com.st17.workclass.data.CalendarNames.daysOfWeekShortName
 import com.st17.workclass.data.CalendarNames.monthsName
-import com.st17.workclass.model.datetime.Date
+import com.st17.workclass.model.dateTime.Date
 import com.st17.workclass.ui.elements.buttons.circleButton
 import com.st17.workclass.ui.elements.texts.addictionalText
 import com.st17.workclass.ui.elements.texts.titleText

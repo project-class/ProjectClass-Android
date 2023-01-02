@@ -2,7 +2,7 @@ package com.st17.workclass.data
 
 import com.st17.workclass.data.LessonTime.endTime
 import com.st17.workclass.data.LessonTime.startTime
-import com.st17.workclass.model.datetime.Date
+import com.st17.workclass.model.dateTime.Date
 
 class Lesson(
     val name : String = "Lesson",

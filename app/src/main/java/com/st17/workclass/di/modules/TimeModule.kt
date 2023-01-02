@@ -1,6 +1,6 @@
 package com.st17.workclass.di.modules
 
-import com.st17.workclass.model.datetime.Time
+import com.st17.workclass.model.dateTime.Time
 import dagger.Module
 import dagger.Provides
 

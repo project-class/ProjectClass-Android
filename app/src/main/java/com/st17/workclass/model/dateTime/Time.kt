@@ -1,10 +1,8 @@
-package com.st17.workclass.model.datetime
+package com.st17.workclass.model.dateTime
 
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.st17.workclass.data.CalendarMonthLength
-import dagger.Module
-import dagger.Provides
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.*

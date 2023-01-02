@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.st17.workclass.MainApp
-import com.st17.workclass.model.datetime.Time
+import com.st17.workclass.model.dateTime.Time
 import com.st17.workclass.ui.navigation.studentGraph
 import com.st17.workclass.ui.screens.student.mainscreen.StudentMainViewModel
 import com.st17.workclass.ui.theme.WorkClassTheme
