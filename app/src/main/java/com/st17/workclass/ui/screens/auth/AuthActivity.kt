@@ -22,13 +22,15 @@ import javax.inject.Inject
 class AuthActivity : ComponentActivity() {
 
     @Inject
-    lateinit var userManager: UserManager
+    lateinit var authViewModel: AuthViewModel
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         (application as MainApp).appComponent.inject(this)
+
+
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
@@ -38,11 +40,10 @@ class AuthActivity : ComponentActivity() {
                     Color.Transparent, darkIcons = MaterialTheme.colors.isLight)
 
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    authGraph()
+                    authGraph(authViewModel = authViewModel)
                 }
             }
         }
-
     }
 }
 

@@ -13,13 +13,12 @@ import androidx.navigation.NavHostController
 import com.st17.workclass.R
 
 @Composable
-fun returnBackArrowButtonBlack(navHostController: NavHostController, graph : String){
+fun returnBackArrowButtonBlack(onClick: ()-> Unit){
     Box(
         modifier = Modifier
             .wrapContentSize()
             .clickable {
-                navHostController.popBackStack()
-                navHostController.navigate(graph)
+                onClick()
             },
         contentAlignment = Alignment.Center
     ) {
@@ -36,13 +35,12 @@ fun returnBackArrowButtonBlack(navHostController: NavHostController, graph : Str
 }
 
 @Composable
-fun returnBackArrowButtonWhite(navHostController: NavHostController, graph : String){
+fun returnBackArrowButtonWhite(onClick: ()-> Unit){
     Box(
         modifier = Modifier
             .wrapContentSize()
             .clickable {
-                navHostController.popBackStack()
-                navHostController.navigate(graph)
+                onClick()
             },
         contentAlignment = Alignment.Center
     ) {

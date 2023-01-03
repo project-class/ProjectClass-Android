@@ -43,8 +43,8 @@ fun calendar(date: Date, viewModel: StudentMainViewModel){
             }
 
             Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                circleButton()
-                circleButton(rotateDegrees = 180f)
+                circleButton(onClick = {})
+                circleButton(rotateDegrees = 180f,onClick = {})
             }
         }
 

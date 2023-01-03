@@ -19,7 +19,8 @@ import com.st17.workclass.ui.theme.White
 
 @Composable
 fun circleButton(width: Int = 40, height: Int = 40,
-                 rotateDegrees : Float = 0f, buttonColor: Color = White){
+                 rotateDegrees : Float = 0f, buttonColor: Color = White,
+                 onClick: ()-> Unit){
 
     val vector = ImageVector.vectorResource(id = R.drawable.button_trinagle_arrow)
 
@@ -31,7 +32,7 @@ fun circleButton(width: Int = 40, height: Int = 40,
             .clip(CircleShape)
             .background(buttonColor)
             .clickable {
-
+                onClick()
             },
         contentAlignment = Alignment.Center
     ) {

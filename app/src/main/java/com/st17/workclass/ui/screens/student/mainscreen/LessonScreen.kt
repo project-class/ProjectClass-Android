@@ -32,7 +32,7 @@ fun lessonScreen(navController: NavHostController, studentMainViewModel: Student
 
     Column {
         topLessonBar(studentMainViewModel = studentMainViewModel,
-            navHostController = navController)
+            navController = navController)
 
         Row(modifier = Modifier
             .fillMaxWidth()

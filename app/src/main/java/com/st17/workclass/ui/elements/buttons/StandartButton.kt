@@ -18,7 +18,7 @@ import com.st17.workclass.ui.theme.*
 @Composable
 fun standartButton(text: String = "text", color: Color = Black,
                    width: Int = 146, height: Int = 36,
-                   navHostController: NavHostController, graph : String){
+                   onClick: ()-> Unit){
     Box(
         modifier = Modifier
             .width(width.dp)
@@ -30,8 +30,7 @@ fun standartButton(text: String = "text", color: Color = Black,
             .clip(RoundedCornerShape(8.dp))
             .background(Color.White)
             .clickable {
-                navHostController.popBackStack()
-                navHostController.navigate(graph)
+                onClick()
             },
 
         contentAlignment = Alignment.Center

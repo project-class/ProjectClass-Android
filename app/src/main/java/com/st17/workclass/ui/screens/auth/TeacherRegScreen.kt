@@ -16,15 +16,17 @@ import com.st17.workclass.ui.elements.buttons.confirmButton
 import com.st17.workclass.ui.elements.buttons.returnBackArrowButtonBlack
 import com.st17.workclass.ui.theme.BrownN
 
-@Preview
 @Composable
-fun teacherRegScreen(navController: NavHostController = rememberNavController()){
+fun teacherRegScreen(navController: NavHostController = rememberNavController(), authViewModel: AuthViewModel){
     regBackground()
 
     Column(modifier = Modifier
         .padding(top = 50.dp, start = 16.dp)) {
 
-        returnBackArrowButtonBlack(navHostController = navController, graph = AuthGraph.CHOOSE_REG_TYPE)
+        returnBackArrowButtonBlack(onClick = {
+            navController.popBackStack()
+            navController.navigate(AuthGraph.CHOOSE_REG_TYPE)
+        })
     }
 
     Box(modifier = Modifier
@@ -45,6 +47,9 @@ fun teacherRegScreen(navController: NavHostController = rememberNavController())
         .padding(bottom = 64.dp),
         contentAlignment = Alignment.BottomCenter){
         confirmButton(text = "Отправить", buttonColor = BrownN,
-            navHostController = navController, graph = AuthGraph.AUTH_STUDENT)
+            onClick = {
+                navController.popBackStack()
+                navController.navigate(AuthGraph.AUTH_STUDENT)
+            })
     }
 }

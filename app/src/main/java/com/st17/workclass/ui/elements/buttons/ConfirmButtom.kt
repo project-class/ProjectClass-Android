@@ -17,7 +17,7 @@ import com.st17.workclass.ui.theme.*
 @Composable
 fun confirmButton(text: String = "text", textColor: Color = Black,
                    width: Int = 264, height: Int = 56, buttonColor: Color = White,
-                   navHostController: NavHostController, graph : String){
+                  onClick: ()-> Unit){
     Box(
         modifier = Modifier
             .width(width.dp)
@@ -25,8 +25,7 @@ fun confirmButton(text: String = "text", textColor: Color = Black,
             .clip(RoundedCornerShape(12.dp))
             .background(buttonColor)
             .clickable {
-                navHostController.popBackStack()
-                navHostController.navigate(graph)
+                onClick()
             },
         contentAlignment = Alignment.Center
     ) {

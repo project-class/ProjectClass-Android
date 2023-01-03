@@ -33,7 +33,7 @@ fun buttonIconText(text : String = "text", textColor: Color = Black,
         )
 
         .background(color = backgroundColor, RoundedCornerShape(14.dp))
-        .clickable { onClick }) {
+        .clickable { onClick() }) {
 
         val vector = ImageVector.vectorResource(icon)
         Image(

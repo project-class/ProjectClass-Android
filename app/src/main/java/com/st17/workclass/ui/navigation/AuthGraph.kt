@@ -5,21 +5,18 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.st17.workclass.ui.screens.auth.authScreen
-import com.st17.workclass.ui.screens.auth.chooseRegTypeScreen
-import com.st17.workclass.ui.screens.auth.studentRegScreen
-import com.st17.workclass.ui.screens.auth.teacherRegScreen
-import com.st17.workclass.ui.screens.student.scaffoldStudentScreen
+import com.st17.workclass.ui.screens.auth.*
 
 @Composable
-fun authGraph(navController: NavHostController = rememberNavController()) {
+fun authGraph(navController: NavHostController = rememberNavController(),
+              authViewModel: AuthViewModel) {
     NavHost(
         navController = navController,
         route = Graph.AUTHENTICATION,
         startDestination = AuthGraph.LOGIN
     ) {
         composable(route = AuthGraph.LOGIN) {
-            authScreen(navController)
+            authScreen(navController, authViewModel)
         }
 
         composable(route = AuthGraph.AUTH_STUDENT) {
@@ -30,15 +27,15 @@ fun authGraph(navController: NavHostController = rememberNavController()) {
         }
 
         composable(route = AuthGraph.CHOOSE_REG_TYPE) {
-            chooseRegTypeScreen(navController)
+            chooseRegTypeScreen(navController, authViewModel)
         }
 
         composable(route = AuthGraph.REG_STUDENT) {
-            studentRegScreen(navController)
+            studentRegScreen(navController, authViewModel)
         }
 
         composable(route = AuthGraph.REG_TEACHER) {
-            teacherRegScreen(navController)
+            teacherRegScreen(navController, authViewModel)
         }
     }
 }
