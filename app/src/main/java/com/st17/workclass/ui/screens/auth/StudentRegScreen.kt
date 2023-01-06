@@ -43,8 +43,8 @@ fun studentRegScreen(navController: NavHostController = rememberNavController(),
             modifier = Modifier,
             verticalArrangement = Arrangement.spacedBy(20.dp),
             horizontalAlignment = Alignment.CenterHorizontally) {
-            loginField()
-            passField()
+            loginField(authViewModel)
+            passField(authViewModel)
             classField()
         }
     }

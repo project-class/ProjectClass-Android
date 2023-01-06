@@ -9,9 +9,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.st17.workclass.model.sharedPreferences.SharedPreferencesStorage
+import com.st17.workclass.model.userManager.UserManager
+import com.st17.workclass.ui.screens.auth.AuthViewModel
 import com.st17.workclass.ui.theme.Black
 import com.st17.workclass.ui.theme.BrownL
 import com.st17.workclass.ui.theme.BrownM
@@ -20,6 +24,9 @@ import com.st17.workclass.ui.theme.Transparent
 @Preview(showBackground = true)
 @Composable
 fun testLoginField(){
+    val context = LocalContext.current
+    val authViewModel = AuthViewModel(UserManager(SharedPreferencesStorage(context)))
+
     Box(modifier = Modifier
         .fillMaxSize(),
     contentAlignment = Alignment.Center){
@@ -27,25 +34,26 @@ fun testLoginField(){
             modifier = Modifier
                 .height(120.dp),
             verticalArrangement = Arrangement.SpaceBetween) {
-            loginField()
-            passField()
+            loginField(authViewModel)
+            passField(authViewModel)
         }
     }
 }
 
 @Composable
-fun loginField(text: String = "text"){
-    var textMail by remember { mutableStateOf("") }
+fun loginField(authViewModel: AuthViewModel){
+    //var textMail by remember { mutableStateOf("") }
 
     val mainColor = BrownM
     val backgroundColor = BrownL.copy(0.35f)
 
+    val textMail = authViewModel.name.collectAsState()
 
     Box(modifier = Modifier
         .clip(RoundedCornerShape(4.dp))) {
         TextField(
-            value = textMail,
-            onValueChange = { textMail = it },
+            value = textMail.value,
+            onValueChange = authViewModel::setName ,
             modifier = Modifier
                 .defaultMinSize(minWidth = 328.dp,minHeight = 56.dp),
             label = { Text(text = "Email") },
@@ -64,7 +72,7 @@ fun loginField(text: String = "text"){
 }
 
 @Composable
-fun passField(text: String = "text"){
+fun passField(authViewModel: AuthViewModel){
     var textPass by remember { mutableStateOf("") }
 
     val mainColor = BrownM
