@@ -1,4 +1,4 @@
-package com.st17.workclass.data
+package com.st17.workclass.data.consts.lesson
 
 object LessonStatus {
     const val PAST = "PAST"

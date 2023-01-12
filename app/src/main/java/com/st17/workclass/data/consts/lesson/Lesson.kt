@@ -1,7 +1,8 @@
-package com.st17.workclass.data
+package com.st17.workclass.data.consts.lesson
 
-import com.st17.workclass.data.LessonTime.endTime
-import com.st17.workclass.data.LessonTime.startTime
+import com.st17.workclass.data.file.File
+import com.st17.workclass.data.consts.lesson.LessonTime.endTime
+import com.st17.workclass.data.consts.lesson.LessonTime.startTime
 import com.st17.workclass.model.dateTime.Date
 
 class Lesson(

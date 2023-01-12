@@ -6,11 +6,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.st17.workclass.data.Lesson
-import com.st17.workclass.data.LessonStatus
+import com.st17.workclass.data.consts.lesson.Lesson
+import com.st17.workclass.data.consts.lesson.LessonStatus
 import com.st17.workclass.ui.elements.texts.addictionalText
 import com.st17.workclass.ui.elements.texts.titleText
 import com.st17.workclass.ui.theme.BrownN

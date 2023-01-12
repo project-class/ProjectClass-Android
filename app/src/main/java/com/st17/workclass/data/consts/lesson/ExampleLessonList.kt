@@ -1,4 +1,7 @@
-package com.st17.workclass.data
+package com.st17.workclass.data.consts.lesson
+
+import com.st17.workclass.data.consts.lesson.Lesson
+import com.st17.workclass.data.consts.lesson.LessonStatus
 
 object ExampleLessonList {
     val lessons = mutableListOf<Lesson>(

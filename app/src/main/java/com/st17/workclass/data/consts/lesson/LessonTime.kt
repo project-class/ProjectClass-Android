@@ -1,4 +1,4 @@
-package com.st17.workclass.data
+package com.st17.workclass.data.consts.lesson
 
 object LessonTime {
     val startTime = mutableListOf<String>(" 8:00", " 9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00","17:00","18:00","19:00","20:00")

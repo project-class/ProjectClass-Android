@@ -6,54 +6,30 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.st17.workclass.model.sharedPreferences.SharedPreferencesStorage
-import com.st17.workclass.model.userManager.UserManager
 import com.st17.workclass.ui.screens.auth.AuthViewModel
 import com.st17.workclass.ui.theme.Black
 import com.st17.workclass.ui.theme.BrownL
 import com.st17.workclass.ui.theme.BrownM
 import com.st17.workclass.ui.theme.Transparent
 
-@Preview(showBackground = true)
-@Composable
-fun testLoginField(){
-    val context = LocalContext.current
-    val authViewModel = AuthViewModel(UserManager(SharedPreferencesStorage(context)))
-
-    Box(modifier = Modifier
-        .fillMaxSize(),
-    contentAlignment = Alignment.Center){
-        Column(
-            modifier = Modifier
-                .height(120.dp),
-            verticalArrangement = Arrangement.SpaceBetween) {
-            loginField(authViewModel)
-            passField(authViewModel)
-        }
-    }
-}
 
 @Composable
 fun loginField(authViewModel: AuthViewModel){
-    //var textMail by remember { mutableStateOf("") }
 
     val mainColor = BrownM
     val backgroundColor = BrownL.copy(0.35f)
 
-    val textMail = authViewModel.name.collectAsState()
+    val text = authViewModel.login.collectAsState()
 
     Box(modifier = Modifier
         .clip(RoundedCornerShape(4.dp))) {
         TextField(
-            value = textMail.value,
-            onValueChange = authViewModel::setName ,
+            value = text.value,
+            onValueChange = authViewModel::setLogin ,
             modifier = Modifier
                 .defaultMinSize(minWidth = 328.dp,minHeight = 56.dp),
             label = { Text(text = "Email") },
@@ -73,18 +49,17 @@ fun loginField(authViewModel: AuthViewModel){
 
 @Composable
 fun passField(authViewModel: AuthViewModel){
-    var textPass by remember { mutableStateOf("") }
 
     val mainColor = BrownM
     val backgroundColor = BrownL.copy(0.35f)
 
-
+    val text = authViewModel.password.collectAsState()
 
     Box(modifier = Modifier
         .clip(RoundedCornerShape(4.dp))) {
         TextField(
-            value = textPass,
-            onValueChange = { textPass = it },
+            value = text.value,
+            onValueChange = authViewModel::setPassword,
             modifier = Modifier
                 .defaultMinSize(minWidth = 328.dp,minHeight = 56.dp),
             label = { Text(text = "Пароль") },
@@ -103,18 +78,18 @@ fun passField(authViewModel: AuthViewModel){
 }
 
 @Composable
-fun classField(text: String = "text"){
-    var textMail by remember { mutableStateOf("") }
+fun classField(authViewModel: AuthViewModel){
 
     val mainColor = BrownM
     val backgroundColor = BrownL.copy(0.35f)
 
+    val text = authViewModel.eduClass.collectAsState()
 
     Box(modifier = Modifier
         .clip(RoundedCornerShape(4.dp))) {
         TextField(
-            value = textMail,
-            onValueChange = { textMail = it },
+            value = text.value,
+            onValueChange = authViewModel::setEduClass,
             modifier = Modifier
                 .defaultMinSize(minWidth = 328.dp,minHeight = 56.dp),
             label = { Text(text = "Класс") },

@@ -1,4 +1,4 @@
-package com.st17.workclass.data
+package com.st17.workclass.data.calendar
 
 object CalendarNames {
     val daysOfWeekName = mutableListOf<String>(

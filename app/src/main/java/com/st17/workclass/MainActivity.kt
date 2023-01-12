@@ -54,8 +54,6 @@ class MainActivity : ComponentActivity() {
             USER_TEACHER -> this.startActivity(Intent(this, TeacherActivity::class.java))
             else -> this.startActivity(Intent(this, AuthActivity::class.java))
         }
-
+        finish()
     }
 }
-
-

@@ -50,10 +50,3 @@ fun chooseRegTypeScreen(navController: NavHostController = rememberNavController
         }
     }
 }
-
-@Preview
-@Composable
-fun previewChooseRegTypeScreen(){
-    val context = LocalContext.current
-    chooseRegTypeScreen(authViewModel = AuthViewModel(UserManager(storage = SharedPreferencesStorage(context))))
-}

@@ -4,8 +4,8 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.st17.workclass.data.Lesson
-import com.st17.workclass.data.LessonStatus
+import com.st17.workclass.data.consts.lesson.Lesson
+import com.st17.workclass.data.consts.lesson.LessonStatus
 import com.st17.workclass.model.dateTime.Date
 import com.st17.workclass.model.dateTime.Time
 import kotlinx.coroutines.flow.MutableStateFlow

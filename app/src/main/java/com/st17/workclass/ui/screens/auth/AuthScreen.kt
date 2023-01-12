@@ -22,6 +22,9 @@ import com.st17.workclass.ui.elements.texts.titleText
 import com.st17.workclass.ui.screens.student.StudentActivity
 import com.st17.workclass.ui.theme.BrownN
 import com.st17.workclass.ui.theme.GreenD
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
 @Composable
 fun authScreen(navController: NavHostController = rememberNavController(), authViewModel: AuthViewModel){
@@ -43,8 +46,10 @@ fun authScreen(navController: NavHostController = rememberNavController(), authV
             Column(
                 modifier = Modifier,
                 verticalArrangement = Arrangement.spacedBy(20.dp)) {
+
                 loginField(authViewModel)
                 passField(authViewModel)
+
                 Row(modifier = Modifier
                     .padding(top = 6.dp, start = 6.dp, end = 6.dp),
                     horizontalArrangement = Arrangement.spacedBy(22.dp),
@@ -53,20 +58,30 @@ fun authScreen(navController: NavHostController = rememberNavController(), authV
                         navController.popBackStack()
                         navController.navigate(AuthGraph.CHOOSE_REG_TYPE)
                     })
+//орехова ирина сергеевна
+//ламыскина
+                    standartButton(text = "Вход", color = GreenD) {
+                        authViewModel.updateUserInfo()
 
-                    standartButton(text = "Вход", color = GreenD, onClick = {
-                        Toast.makeText(context, "${authViewModel.name.value}", Toast.LENGTH_LONG).show();
-                        //context.startActivity(Intent(context,StudentActivity::class.java))
-                    })
+                        for (i in 0..10){
+
+                            if (authViewModel.userInfo.value.type != ""){
+                                break
+                            }
+                            Thread.sleep(1000)
+                        }
+
+                        if (authViewModel.userInfo.value.type != "") {
+                            Toast.makeText(context, "зашёл", Toast.LENGTH_LONG).show()
+                        } else {
+                            Toast.makeText(context, "Неверный логин ${authViewModel.login.value})", Toast.LENGTH_LONG).show()
+                            Toast.makeText(context, "или пароль ${authViewModel.password.value} ", Toast.LENGTH_LONG).show()
+                            Toast.makeText(context, "(${authViewModel.userInfo.value.type})", Toast.LENGTH_LONG).show()
+                        }
+
+                    }
                 }
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun previewAuthScreen(){
-    val context = LocalContext.current
-    authScreen(authViewModel = AuthViewModel(UserManager(storage = SharedPreferencesStorage(context))))
 }

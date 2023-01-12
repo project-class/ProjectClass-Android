@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.st17.workclass.MainApp
+import com.st17.workclass.model.ktor.UserKtorRepository
 import com.st17.workclass.model.userManager.UserManager
 import com.st17.workclass.ui.navigation.authGraph
 import com.st17.workclass.ui.theme.WorkClassTheme
@@ -20,7 +21,6 @@ import javax.inject.Inject
 
 
 class AuthActivity : ComponentActivity() {
-
     @Inject
     lateinit var authViewModel: AuthViewModel
 
@@ -29,8 +29,6 @@ class AuthActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         (application as MainApp).appComponent.inject(this)
-
-
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
 

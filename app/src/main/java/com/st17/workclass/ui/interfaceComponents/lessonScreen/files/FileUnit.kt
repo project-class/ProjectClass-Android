@@ -11,7 +11,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.st17.workclass.R
-import com.st17.workclass.data.File
+import com.st17.workclass.data.file.File
 import com.st17.workclass.ui.elements.texts.addictionalText
 import com.st17.workclass.ui.theme.Black
 import com.st17.workclass.ui.theme.White
