@@ -50,22 +50,13 @@ class MainActivity : ComponentActivity() {
     private fun intentActivity(){
         when(userManager.getUserType()){
             Type.student -> {
-                Toast.makeText(this,userManager.getUserInfo().login, Toast.LENGTH_LONG).show()
-                Toast.makeText(this,userManager.getUserInfo().type, Toast.LENGTH_LONG).show()
-                Toast.makeText(this,userManager.getUserInfo().eduClass, Toast.LENGTH_LONG).show()
-                Toast.makeText(this,userManager.getUserInfo().firstName, Toast.LENGTH_LONG).show()
-                Toast.makeText(this,userManager.getUserInfo().lastName, Toast.LENGTH_LONG).show()
                 this.startActivity(Intent(this, StudentActivity::class.java))
             }
 
             Type.teacher -> {
-                Toast.makeText(this,userManager.getUserInfo().login, Toast.LENGTH_LONG).show()
-                Toast.makeText(this,userManager.getUserInfo().type, Toast.LENGTH_LONG).show()
-                Toast.makeText(this,userManager.getUserInfo().eduClass, Toast.LENGTH_LONG).show()
-                Toast.makeText(this,userManager.getUserInfo().firstName, Toast.LENGTH_LONG).show()
-                Toast.makeText(this,userManager.getUserInfo().lastName, Toast.LENGTH_LONG).show()
                 this.startActivity(Intent(this, TeacherActivity::class.java))
             }
+
             else -> this.startActivity(Intent(this, AuthActivity::class.java))
         }
         finish()

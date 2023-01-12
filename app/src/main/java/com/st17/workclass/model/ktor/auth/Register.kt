@@ -7,6 +7,7 @@ import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.runBlocking
 
 class Register {
     suspend fun register(userReg: UserReg, ktorClient: KtorClient): String = coroutineScope{

@@ -1,11 +1,10 @@
 package com.st17.workclass.ui.screens.auth
 
-import android.content.Context
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.user.UserInfo
 import com.example.data.user.UserLogin
+import com.example.data.user.UserReg
 import com.st17.workclass.model.ktor.UserKtorRepository
 import com.st17.workclass.model.userManager.UserManager
 import kotlinx.coroutines.*
@@ -40,10 +39,30 @@ class AuthViewModel @Inject constructor(
     private val _userInfo = MutableStateFlow<UserInfo>(UserInfo("no","","","",""))
     val userInfo = _userInfo.asStateFlow()
 
+    fun setUserInfo(type: String){
+        _userInfo.value = UserInfo(login.value,"","", eduClass.value, type)
+    }
+
     fun updateUserInfo(){
         viewModelScope.launch (Dispatchers.IO) {
 
             _userInfo.value = userKtorRepository.login(UserLogin(login.value, password.value))
+
+        }
+    }
+
+    //регистрация
+    private val _answer = MutableStateFlow<String>("")
+    val answer = _answer.asStateFlow()
+
+    fun setAnswer(answer: String) {
+        _answer.value = answer
+    }
+
+    fun sendUserInfo(type: String){
+        viewModelScope.launch (Dispatchers.IO) {
+
+            setAnswer(userKtorRepository.register(UserReg(login.value, password.value, eduClass.value, type)))
 
         }
     }

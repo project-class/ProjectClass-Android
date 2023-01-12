@@ -1,6 +1,7 @@
 package com.st17.workclass.ui.screens.auth
 
 import android.content.Intent
+import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -9,6 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.st17.workclass.data.consts.user.Type
 import com.st17.workclass.ui.navigation.AuthGraph
 import com.st17.workclass.ui.background.regBackground
 import com.st17.workclass.ui.elements.inputField.classField
@@ -17,6 +19,7 @@ import com.st17.workclass.ui.elements.inputField.passField
 import com.st17.workclass.ui.elements.buttons.confirmButton
 import com.st17.workclass.ui.elements.buttons.returnBackArrowButtonBlack
 import com.st17.workclass.ui.screens.student.StudentActivity
+import com.st17.workclass.ui.screens.teacher.TeacherActivity
 import com.st17.workclass.ui.theme.BrownN
 
 
@@ -55,7 +58,23 @@ fun studentRegScreen(navController: NavHostController = rememberNavController(),
         contentAlignment = Alignment.BottomCenter){
         confirmButton(text = "Отправить", buttonColor = BrownN,
             onClick = {
-                context.startActivity(Intent(context, StudentActivity::class.java))
+                authViewModel.sendUserInfo(Type.student)
+
+                for (i in 0..79){
+
+                    if (authViewModel.answer.value == "success"){
+                        authViewModel.setUserInfo(Type.student)
+                        authViewModel.saveUserInfo()
+
+                        context.startActivity(Intent(context, StudentActivity::class.java))
+                    }
+
+                    Thread.sleep(50)
+                }
+
+                if(authViewModel.answer.value != "success"){
+                    Toast.makeText(context, "ошибка", Toast.LENGTH_LONG).show()
+                }
             })
     }
 }
