@@ -11,7 +11,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.st17.workclass.data.consts.user.Type
 import com.st17.workclass.model.sharedPreferences.SharedPreferencesStorage
+import com.st17.workclass.model.sharedPreferences.UserPreferences
 import com.st17.workclass.model.userManager.UserManager
 import com.st17.workclass.ui.navigation.AuthGraph
 import com.st17.workclass.ui.background.authBackground
@@ -20,11 +22,13 @@ import com.st17.workclass.ui.elements.inputField.passField
 import com.st17.workclass.ui.elements.buttons.standartButton
 import com.st17.workclass.ui.elements.texts.titleText
 import com.st17.workclass.ui.screens.student.StudentActivity
+import com.st17.workclass.ui.screens.teacher.TeacherActivity
 import com.st17.workclass.ui.theme.BrownN
 import com.st17.workclass.ui.theme.GreenD
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 @Composable
 fun authScreen(navController: NavHostController = rememberNavController(), authViewModel: AuthViewModel){
@@ -58,25 +62,30 @@ fun authScreen(navController: NavHostController = rememberNavController(), authV
                         navController.popBackStack()
                         navController.navigate(AuthGraph.CHOOSE_REG_TYPE)
                     })
-//орехова ирина сергеевна
-//ламыскина
+
                     standartButton(text = "Вход", color = GreenD) {
                         authViewModel.updateUserInfo()
 
-                        for (i in 0..10){
+                        for (i in 0..29){
 
                             if (authViewModel.userInfo.value.type != ""){
                                 break
                             }
-                            Thread.sleep(1000)
+                            Thread.sleep(100)
                         }
 
-                        if (authViewModel.userInfo.value.type != "") {
-                            Toast.makeText(context, "зашёл", Toast.LENGTH_LONG).show()
-                        } else {
-                            Toast.makeText(context, "Неверный логин ${authViewModel.login.value})", Toast.LENGTH_LONG).show()
-                            Toast.makeText(context, "или пароль ${authViewModel.password.value} ", Toast.LENGTH_LONG).show()
-                            Toast.makeText(context, "(${authViewModel.userInfo.value.type})", Toast.LENGTH_LONG).show()
+                        when(authViewModel.userInfo.value.type){
+                            Type.student -> {
+                                authViewModel.saveUserInfo()
+                                context.startActivity(Intent(context, StudentActivity::class.java))
+                            }
+
+                            Type.teacher -> {
+                                authViewModel.saveUserInfo()
+                                context.startActivity(Intent(context, TeacherActivity::class.java))
+                            }
+
+                            else -> Toast.makeText(context, "ошибка входа", Toast.LENGTH_LONG).show()
                         }
 
                     }

@@ -21,7 +21,3 @@ class Login {
         )
     }
 }
-
-suspend fun main() {
-    println(Login().login(UserLogin("login","password"), KtorClient()))
-}

@@ -13,9 +13,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
-class AuthViewModel @Inject constructor(val userManager: UserManager, private val userKtorRepository: UserKtorRepository) :
-    ViewModel() {
+class AuthViewModel @Inject constructor(
+    val userManager: UserManager, private val userKtorRepository: UserKtorRepository
+) : ViewModel() {
 
+    //поля ввода
     private val _login = MutableStateFlow("")
     val login = _login.asStateFlow()
     fun setLogin(login: String) {
@@ -34,6 +36,7 @@ class AuthViewModel @Inject constructor(val userManager: UserManager, private va
         _eduClass.value = eduClass
     }
 
+    //получение информации о пользователе
     private val _userInfo = MutableStateFlow<UserInfo>(UserInfo("no","","","",""))
     val userInfo = _userInfo.asStateFlow()
 
@@ -41,8 +44,13 @@ class AuthViewModel @Inject constructor(val userManager: UserManager, private va
         viewModelScope.launch (Dispatchers.IO) {
 
             _userInfo.value = userKtorRepository.login(UserLogin(login.value, password.value))
+
         }
     }
 
+    //сохранение пользователя
+    fun saveUserInfo(){
+        userManager.saveUserInfo(userInfo.value)
+    }
 
 }

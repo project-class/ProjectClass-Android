@@ -2,6 +2,7 @@ package com.st17.workclass
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,9 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.st17.workclass.model.sharedPreferences.UserPreferences
-import com.st17.workclass.model.sharedPreferences.UserPreferences.USER_STUDENT
-import com.st17.workclass.model.sharedPreferences.UserPreferences.USER_TEACHER
+import com.st17.workclass.data.consts.user.Type
 import com.st17.workclass.model.userManager.UserManager
 import com.st17.workclass.ui.background.mainBackground
 import com.st17.workclass.ui.screens.auth.AuthActivity
@@ -50,8 +49,23 @@ class MainActivity : ComponentActivity() {
 
     private fun intentActivity(){
         when(userManager.getUserType()){
-            USER_STUDENT -> this.startActivity(Intent(this, StudentActivity::class.java))
-            USER_TEACHER -> this.startActivity(Intent(this, TeacherActivity::class.java))
+            Type.student -> {
+                Toast.makeText(this,userManager.getUserInfo().login, Toast.LENGTH_LONG).show()
+                Toast.makeText(this,userManager.getUserInfo().type, Toast.LENGTH_LONG).show()
+                Toast.makeText(this,userManager.getUserInfo().eduClass, Toast.LENGTH_LONG).show()
+                Toast.makeText(this,userManager.getUserInfo().firstName, Toast.LENGTH_LONG).show()
+                Toast.makeText(this,userManager.getUserInfo().lastName, Toast.LENGTH_LONG).show()
+                this.startActivity(Intent(this, StudentActivity::class.java))
+            }
+
+            Type.teacher -> {
+                Toast.makeText(this,userManager.getUserInfo().login, Toast.LENGTH_LONG).show()
+                Toast.makeText(this,userManager.getUserInfo().type, Toast.LENGTH_LONG).show()
+                Toast.makeText(this,userManager.getUserInfo().eduClass, Toast.LENGTH_LONG).show()
+                Toast.makeText(this,userManager.getUserInfo().firstName, Toast.LENGTH_LONG).show()
+                Toast.makeText(this,userManager.getUserInfo().lastName, Toast.LENGTH_LONG).show()
+                this.startActivity(Intent(this, TeacherActivity::class.java))
+            }
             else -> this.startActivity(Intent(this, AuthActivity::class.java))
         }
         finish()

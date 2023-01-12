@@ -16,7 +16,3 @@ class Register {
         }.bodyAsText()
     }
 }
-
-suspend fun main() {
-    println(Register().register(UserReg(login="login21", password = "password", eduClass = "5f", type = "student"), KtorClient()))
-}

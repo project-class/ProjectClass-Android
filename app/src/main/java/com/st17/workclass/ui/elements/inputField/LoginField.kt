@@ -32,7 +32,7 @@ fun loginField(authViewModel: AuthViewModel){
             onValueChange = authViewModel::setLogin ,
             modifier = Modifier
                 .defaultMinSize(minWidth = 328.dp,minHeight = 56.dp),
-            label = { Text(text = "Email") },
+            label = { Text(text = "Login") },
             singleLine = true,
             colors = TextFieldDefaults.textFieldColors(
                 cursorColor = mainColor,
