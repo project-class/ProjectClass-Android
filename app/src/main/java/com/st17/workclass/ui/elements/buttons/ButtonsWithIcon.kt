@@ -59,10 +59,11 @@ fun buttonIconText(text : String = "text", textColor: Color = Black,
 @Composable
 fun buttonTextIcon(text : String = "text", textColor: Color = Black,
                    icon: Int = R.drawable.button_arrow_black, backgroundColor: Color = White,
+                   height: Int = 36,
                    onClick: ()-> Unit){
 
     Row(modifier = Modifier
-        .height(36.dp)
+        .height(height.dp)
         .extendedShadow(
             borderRadius = 14.dp,
             blurRadius = 15.dp,
@@ -73,11 +74,80 @@ fun buttonTextIcon(text : String = "text", textColor: Color = Black,
         .clickable { onClick }) {
 
         Column(modifier = Modifier
-            .height(36.dp)
+            .height(height.dp)
             .padding(start = 12.dp),
             verticalArrangement = Arrangement.SpaceAround) {
             addictionalText(text = text, color = textColor, textSize = 14.sp, fontWeight = 500)
         }
+
+        val vector = ImageVector.vectorResource(icon)
+        Image(
+            vector,
+            "top",
+            modifier = Modifier
+                .padding(start = 10.dp, end = 6.dp, top = 4.dp, bottom = 4.dp)
+                .aspectRatio(vector.viewportWidth/vector.viewportHeight)
+
+        )
+    }
+
+}
+
+@Composable
+fun buttonTextIcon(text : String = "text", textColor: Color = Black,
+                   icon: Int = R.drawable.button_arrow_black, backgroundColor: Color = White,
+                   height: Int = 36, width: Int = 100,
+                   onClick: ()-> Unit){
+
+    Row(modifier = Modifier
+        .height(height.dp)
+        .width(width.dp)
+        .extendedShadow(
+            borderRadius = 14.dp,
+            blurRadius = 15.dp,
+            color = GreyN
+        )
+
+        .background(color = backgroundColor, RoundedCornerShape(14.dp))
+        .clickable { onClick() },
+        horizontalArrangement = Arrangement.Center) {
+
+        Column(modifier = Modifier
+            .height(height.dp)
+            .padding(start = 12.dp),
+            verticalArrangement = Arrangement.SpaceAround) {
+            addictionalText(text = text, color = textColor, textSize = 14.sp, fontWeight = 500)
+        }
+
+        val vector = ImageVector.vectorResource(icon)
+        Image(
+            vector,
+            "top",
+            modifier = Modifier
+                .padding(start = 10.dp, end = 6.dp, top = 4.dp, bottom = 4.dp)
+                .aspectRatio(vector.viewportWidth/vector.viewportHeight)
+
+        )
+    }
+
+}
+
+@Composable
+fun buttonWithIcon(icon: Int = R.drawable.button_arrow_black, backgroundColor: Color = White,
+                   height: Int = 36, width: Int = 100,
+                   onClick: ()-> Unit){
+
+    Row(modifier = Modifier
+        .height(height.dp)
+        .width(width.dp)
+        .extendedShadow(
+            borderRadius = 14.dp,
+            blurRadius = 15.dp,
+            color = GreyN
+        )
+        .background(color = backgroundColor, RoundedCornerShape(14.dp))
+        .clickable { onClick() }) {
+
 
         val vector = ImageVector.vectorResource(icon)
         Image(

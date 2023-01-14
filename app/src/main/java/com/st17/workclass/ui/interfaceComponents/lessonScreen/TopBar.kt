@@ -12,6 +12,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.st17.workclass.data.consts.lesson.Lesson
+import com.st17.workclass.model.dateTime.Date
 import com.st17.workclass.ui.elements.buttons.returnBackArrowButtonWhite
 import com.st17.workclass.ui.elements.texts.addictionalText
 import com.st17.workclass.ui.elements.shadow.extendedShadow
@@ -23,11 +25,11 @@ import com.st17.workclass.ui.theme.White
 
 @Composable
 @RequiresApi(Build.VERSION_CODES.O)
-fun topLessonBar(studentMainViewModel: StudentMainViewModel,
-                 navController: NavHostController = rememberNavController()
+fun topLessonBar(lesson: Lesson, date: Date,
+                 navController: NavHostController = rememberNavController(),
+                 onClick: ()-> Unit
 ){
-    val lesson = studentMainViewModel.lesson
-    lesson.date = studentMainViewModel.date
+    lesson.date = date
 
     Row(modifier = Modifier
         .fillMaxWidth()
@@ -41,8 +43,7 @@ fun topLessonBar(studentMainViewModel: StudentMainViewModel,
             Box(modifier = Modifier
                 .padding(top = 18.dp, bottom = 18.dp, start = 16.dp, end = 16.dp)){
                 returnBackArrowButtonWhite(onClick = {
-                    navController.popBackStack()
-                    navController.navigate(StudentGraph.STUDENT_MAIN)
+                    onClick()
                 })
             }
 

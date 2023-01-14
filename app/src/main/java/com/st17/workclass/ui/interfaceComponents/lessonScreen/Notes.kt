@@ -6,12 +6,14 @@ import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import com.st17.workclass.R
 import com.st17.workclass.ui.elements.buttons.buttonIconText
 import com.st17.workclass.ui.elements.texts.addictionalText
 import com.st17.workclass.ui.screens.student.mainscreen.StudentMainViewModel
+import com.st17.workclass.ui.screens.teacher.mainscreen.TeacherMainViewModel
 import com.st17.workclass.ui.theme.Black
 import com.st17.workclass.ui.theme.GreyN
 import com.st17.workclass.ui.theme.Transparent
@@ -54,6 +56,52 @@ fun notes(studentMainViewModel: StudentMainViewModel){
                 onClick = {
                     studentMainViewModel.updateLesson(studentMainViewModel.currentNote.value)
             })
+        }
+    }
+}
+
+@SuppressLint("StateFlowValueCalledInComposition")
+@Composable
+fun notes(teacherMainViewModel: TeacherMainViewModel, onClick: ()-> Unit){
+
+    val text = teacherMainViewModel.note.collectAsState()
+
+    Column(modifier = Modifier
+        .padding(16.dp, 12.dp)) {
+        addictionalText(color = GreyN, text = "Заметки",fontWeight = 500)
+
+        Box(modifier = Modifier
+            .padding(top = 4.dp, bottom = 16.dp)){
+
+            TextField(
+                value = text.value,
+                onValueChange = { teacherMainViewModel.setNote(it) },
+                modifier = Modifier
+                    .fillMaxWidth(),
+                textStyle = TextStyle(
+                    fontWeight = FontWeight(500),
+
+                ),
+                colors = TextFieldDefaults.textFieldColors(
+                    cursorColor = Black,
+                    focusedLabelColor = Transparent,
+                    unfocusedLabelColor = Transparent,
+                    textColor = Black,
+                    backgroundColor = Transparent,
+                    focusedIndicatorColor = Transparent,
+                    unfocusedIndicatorColor = Transparent
+                )
+            )
+        }
+
+        Row(modifier = Modifier
+            .fillMaxWidth(),
+            horizontalArrangement = Arrangement.End){
+
+            buttonIconText(text = "Добавить Заметку", icon = R.drawable.ic_list,
+                onClick = {
+                    onClick()
+                })
         }
     }
 }

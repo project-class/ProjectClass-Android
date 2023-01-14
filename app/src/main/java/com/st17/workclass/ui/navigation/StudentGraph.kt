@@ -8,7 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.st17.workclass.ui.screens.student.mainscreen.StudentMainViewModel
-import com.st17.workclass.ui.screens.student.mainscreen.lessonScreen
+import com.st17.workclass.ui.screens.student.mainscreen.studentLessonScreen
 import com.st17.workclass.ui.screens.student.mainscreen.mainStudentScreen
 import com.st17.workclass.ui.screens.student.settings.settingStudentScreen
 
@@ -31,7 +31,7 @@ fun studentGraph(navController: NavHostController = rememberNavController(),
         }
 
         composable(route = StudentGraph.STUDENT_LESSON) {
-            lessonScreen(navController, studentMainViewModel)
+            studentLessonScreen(navController, studentMainViewModel)
         }
 
     }

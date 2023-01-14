@@ -19,20 +19,24 @@ import com.st17.workclass.ui.elements.shadow.extendedShadow
 import com.st17.workclass.ui.elements.texts.addictionalText
 import com.st17.workclass.ui.elements.texts.titleText
 import com.st17.workclass.ui.interfaceComponents.lessonScreen.files.listOfFiles
-import com.st17.workclass.ui.interfaceComponents.lessonScreen.homeWork
+import com.st17.workclass.ui.interfaceComponents.lessonScreen.studentHomeWork
 import com.st17.workclass.ui.interfaceComponents.lessonScreen.notes
 import com.st17.workclass.ui.interfaceComponents.lessonScreen.topLessonBar
 import com.st17.workclass.ui.theme.White
 import com.st17.workclass.R
+import com.st17.workclass.ui.navigation.StudentGraph
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun lessonScreen(navController: NavHostController, studentMainViewModel: StudentMainViewModel) {
+fun studentLessonScreen(navController: NavHostController, studentMainViewModel: StudentMainViewModel) {
     mainBackground()
 
     Column {
-        topLessonBar(studentMainViewModel = studentMainViewModel,
-            navController = navController)
+        topLessonBar(studentMainViewModel.lesson, studentMainViewModel.date,
+            navController = navController,
+            onClick = {
+                navController.popBackStack()
+                navController.navigate(StudentGraph.STUDENT_MAIN)})
 
         Row(modifier = Modifier
             .fillMaxWidth()
@@ -73,11 +77,11 @@ fun lessonScreen(navController: NavHostController, studentMainViewModel: Student
             Column(modifier = Modifier
                 .fillMaxSize()) {
 
-                homeWork(studentMainViewModel = studentMainViewModel)
+                studentHomeWork(studentMainViewModel = studentMainViewModel)
 
                 notes(studentMainViewModel = studentMainViewModel)
 
-                listOfFiles(studentMainViewModel = studentMainViewModel)
+                listOfFiles(studentMainViewModel.lesson.files)
             }
         }
 

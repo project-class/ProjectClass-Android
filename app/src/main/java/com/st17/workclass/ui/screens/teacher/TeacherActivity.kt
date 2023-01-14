@@ -12,11 +12,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.st17.workclass.model.dateTime.Time
 import com.st17.workclass.ui.background.mainBackground
+import com.st17.workclass.ui.screens.student.mainscreen.StudentMainViewModel
+import com.st17.workclass.ui.screens.teacher.mainscreen.TeacherMainViewModel
 import com.st17.workclass.ui.theme.WorkClassTheme
+import javax.inject.Inject
 
 
 class TeacherActivity : ComponentActivity() {
+
+    var teacherMainViewModel: TeacherMainViewModel = TeacherMainViewModel(Time())
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,12 +36,10 @@ class TeacherActivity : ComponentActivity() {
                     Color.Transparent, darkIcons = MaterialTheme.colors.isLight)
 
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    mainBackground()
+                    scaffoldTeacherScreen(teacherMainViewModel)
                 }
             }
         }
-
-        val settings = getSharedPreferences("PreferencesName", MODE_PRIVATE)
     }
 }
 

@@ -24,9 +24,6 @@ import javax.inject.Inject
 class StudentActivity : ComponentActivity() {
 
     @Inject
-    lateinit var time: Time
-
-    @Inject
     lateinit var studentMainViewModel: StudentMainViewModel
 
     @RequiresApi(Build.VERSION_CODES.O)
