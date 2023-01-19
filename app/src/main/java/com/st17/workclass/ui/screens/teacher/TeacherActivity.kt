@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.st17.workclass.MainApp
 import com.st17.workclass.model.dateTime.Time
 import com.st17.workclass.ui.background.mainBackground
 import com.st17.workclass.ui.screens.student.mainscreen.StudentMainViewModel
@@ -22,12 +23,15 @@ import javax.inject.Inject
 
 class TeacherActivity : ComponentActivity() {
 
-    var teacherMainViewModel: TeacherMainViewModel = TeacherMainViewModel(Time())
+
+    @Inject
+    lateinit var teacherMainViewModel: TeacherMainViewModel
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        (application as MainApp).appComponent.inject(this)
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
@@ -36,7 +40,7 @@ class TeacherActivity : ComponentActivity() {
                     Color.Transparent, darkIcons = MaterialTheme.colors.isLight)
 
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    scaffoldTeacherScreen(teacherMainViewModel)
+                    scaffoldTeacherScreen(teacherMainViewModel = teacherMainViewModel)
                 }
             }
         }

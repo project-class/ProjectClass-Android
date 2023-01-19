@@ -28,7 +28,6 @@ class TeacherMainViewModel @Inject constructor(private val time: Time) : ViewMod
         _homework.value = homework
     }
 
-
     //lessons
     private val _lesson = MutableStateFlow(Lesson(place = 0))
     var lesson = _lesson.asStateFlow()
